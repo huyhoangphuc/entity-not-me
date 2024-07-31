@@ -55,8 +55,7 @@ entity.Debug.OnLookAtEntity = function()
 end
 
 entity.Debug.OnDeath = function()
-    warn("You died Rebound.")
-loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoangphuc/entity-endless-doors/main/Rebound%20Jumpscare"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoangphuc/entity-endless-doors/main/Rebound%20Jumpscare"))()
 wait(1)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoangphuc/entity-endless-doors/main/ReboundPlayerDead"))()
 end
