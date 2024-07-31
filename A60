@@ -1,0 +1,114 @@
+---====== Define spawner ======---
+ 
+local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Entity%20Spawner/V1/Source.lua"))()
+ 
+---====== Create entity ======---
+ 
+local entity = Spawner.createEntity({
+    CustomName = "A-60",
+    Model = "https://github.com/plamen6789/CustomDoorsMonsters/blob/main/A-60.rbxm?raw=true",
+    Speed = 500,
+    MoveDelay = 5,
+    HeightOffset = 0,
+    CanKill = true,
+    KillRange = 50,
+    SpawnInFront = false,
+    ShatterLights = true,
+    FlickerLights = {
+        Enabled = true,
+        Duration = 5
+    },
+    Cycles = {
+        Min = 1,
+        Max = 1,
+        Delay = 0
+    },
+    CamShake = {
+        Enabled = true,
+        Values = {1.5, 20, 0.1, 1},
+        Range = 100
+    },
+    ResistCrucifix = false,
+    BreakCrucifix = true
+})
+ 
+---====== Debug ======---
+ 
+entity.Debug.OnEntitySpawned = function()
+    print("Entity has spawned")
+end
+ 
+entity.Debug.OnEntityDespawned = function()
+    print("Entity has despawned")
+---====== Load achievement giver ======---
+local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+ 
+---====== Display achievement ======---
+achievementGiver({
+    Title = "Constant Speed",
+    Desc = "I'll be moving here",
+    Reason = "Encounter A-60",
+    Image = "rbxassetid://12451102454"
+})
+end
+ 
+entity.Debug.OnEntityStartMoving = function()
+    print("Entity started moving")
+end
+ 
+entity.Debug.OnEntityFinishedRebound = function()
+    print("Entity finished rebound")
+end
+ 
+entity.Debug.OnEntityEnteredRoom = function(room)
+    print("Entity entered room:", room)
+end
+ 
+entity.Debug.OnLookAtEntity = function()
+    print("Player looking at entity")
+end
+ 
+entity.Debug.OnDeath = function()
+    print("Player has died")
+local func, setupval, getinfo, typeof, getgc, next = nil, debug.setupvalue or setupvalue, debug.getinfo or getinfo, typeof, getgc, next
+ 
+for i,v in next, getgc(false) do
+    if typeof(v) == "function" then
+        local info = getinfo(v)
+        if info.currentline == 54 and info.nups == 2 and info.is_vararg == 0 then
+            func = v
+            break
+        end
+    end
+end
+ 
+local function DeathHint(hints, type: string)
+    setupval(func, 1, hints)
+    if type ~= nil then
+        setupval(func, 2, type)
+    end
+end
+ 
+DeathHint({
+    "Oh... hello",
+    "I'm surprised you found this place...",
+    "It's pretty tedious just to get here, last time I checked",
+    "Anyways, what'd you die to?",
+    "Oh... the red one. I'm not too sure on what I would call it...",
+    "Well, it usually attacks around lastest room, so...",
+    "...you could just call it A-60. I don't know",
+    "Anyways. I hope you don't mind trying again. It would be helpful"
+}, "Yellow") -- "Blue" or "Yellow"
+end
+ 
+--[[
+    NOTE: By overwriting 'OnUseCrucifix', the default crucifixion will be ignored and this function will be called instead
+ 
+    entity.Debug.OnUseCrucifix = function()
+        print("Custom crucifixion script here")
+    end
+]]--
+ 
+---====== Run entity ======---
+ 
+Spawner.runEntity(entity)
