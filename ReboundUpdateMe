@@ -35,12 +35,10 @@ local entity = Spawner.createEntity({
 ---====== Debug ======---
 
 entity.Debug.OnEntitySpawned = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoangphuc/entity-endless-doors/main/Re"))()
 end
 
 entity.Debug.OnEntityDespawned = function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoangphuc/entity-endless-doors/main/Rv1"))()
-end
+end    
 
 entity.Debug.OnEntityStartMoving = function()
     print("Entity started moving")
