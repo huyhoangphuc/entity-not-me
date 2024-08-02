@@ -7,9 +7,9 @@ local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/Regul
 local entity = Spawner.createEntity({
     CustomName = "Monoxide",
     Model = "https://github.com/Johnny39871/assets/blob/main/Monoxidebutbetter.rbxm?raw=true",
-    Speed = 250,
+    Speed = 500,
     MoveDelay = 2,
-    HeightOffset = 0,
+    HeightOffset = 4,
     CanKill = true,
     KillRange = 50,
     SpawnInFront = true,
@@ -19,8 +19,8 @@ local entity = Spawner.createEntity({
         Duration = 0
     },
     Cycles = {
-        Min = 3,
-        Max = 13,
+        Min = 20,
+        Max = 20,
         Delay = 2
     },
     CamShake = {
