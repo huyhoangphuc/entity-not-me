@@ -7,7 +7,7 @@ local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/Regul
 local entity = Spawner.createEntity({
     CustomName = "Surge",
     Model = "rbxassetid://13404145962",
-    Speed = 450,
+    Speed = 1000,
     MoveDelay = 5,
     HeightOffset = 0,
     CanKill = true,
@@ -19,9 +19,9 @@ local entity = Spawner.createEntity({
         Duration = 0
     },
     Cycles = {
-        Min = 3,
-        Max = 3,
-        Delay = 2
+        Min = 4,
+        Max = 4,
+        Delay = 3
     },
     CamShake = {
         Enabled = true,
